@@ -1,0 +1,16 @@
+version: '3'
+services:
+  steve:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: stevedb
+      MYSQL_USER: steve
+      MYSQL_PASSWORD: changeme
